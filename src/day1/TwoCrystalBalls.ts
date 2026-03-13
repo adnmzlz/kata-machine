@@ -3,7 +3,7 @@ export default function two_crystal_balls(breaks: boolean[]): number {
   let low: number = 0;
   let high: number = breaks.length;
 
-  for (let i = 1; i <= Math.sqrt(high); i ++) {
+  for (let i = 1; i <= Math.floor(Math.sqrt(high)); i ++) {
     if (breaks[i * i] === true) {
       high = i * i;
       break;
