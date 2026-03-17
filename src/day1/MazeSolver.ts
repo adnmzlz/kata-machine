@@ -30,6 +30,7 @@ function walk(maze: string[], wall: string, curr: Point, end: Point, seen: boole
     return false;
   }
 
+  // 2. Recursion:
   // pre
   seen[curr.y][curr.x] = true;
   path.push(curr);
