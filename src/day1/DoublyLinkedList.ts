@@ -15,6 +15,16 @@ export default class DoublyLinkedList<T> {
         this.tail = undefined;
     }
 
+    private debug() {
+        let curr = this.head;
+        let out = "";
+        for (let i = 0; curr && i < this.length; i++) {
+            out += `${i} => ${curr.value} `;
+            curr = curr.next;
+        }
+        console.log(out);
+    }
+
     prepend(item: T): void {
         const node = {value: item} as Node<T>;
 
@@ -107,12 +117,12 @@ export default class DoublyLinkedList<T> {
             this.head = this.tail = undefined;
             return out;
         }
-
+        
         if (node.prev) {
-            node.prev = node.next;
+            node.prev.next = node.next;
         }        
         if (node.next) {
-            node.next = node.prev;
+            node.next.prev = node.prev;
         }
         
         if (node === this.head) {
