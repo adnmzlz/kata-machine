@@ -131,6 +131,5 @@ export default class DoublyLinkedList<T> {
             curr = curr.next;
         }
         return curr;
-
     }
 }
