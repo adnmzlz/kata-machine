@@ -42,7 +42,6 @@ export default class LRU<K, V> {
             this.prepend(node);
             node.value = value;
         }
-
     }
 
     get(key: K): V | undefined {
