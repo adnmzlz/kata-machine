@@ -26,7 +26,7 @@ export default class MinHeap {
             return out;
         }
 
-        this.data[0] - this.data[this.length];
+        this.data[0] = this.data[this.length];
         this.heapifyDown(0);
         return out;
     }
@@ -35,22 +35,23 @@ export default class MinHeap {
         const lIdx = this.leftChild(idx);
         const rIdx = this.rightChild(idx);
 
+        // Base case: if off the heap or have no children
         if (idx >= this.length || lIdx >= this.length) {
             return;
         }
 
         const lV = this.data[lIdx];
-        const rV = this.data[rIdx];
+        const rV = rIdx < this.length ? this.data[rIdx]: Infinity;
         const v = this.data[idx];
 
-        if (lV > rV && v > rV) {
-            this.data[idx] = rV;
-            this.data[rIdx] = v;
-            this.heapifyDown(rIdx);
-        } else if (rV > lV && v > lV) {
+        if (lV <= rV && v > lV) {
             this.data[idx] = lV;
             this.data[lIdx] = v;
-            this.heapifyDown(lIdx);
+            this.heapifyDown(lIdx);            
+        } else if (rV < lV && v > rV) {
+            this.data[idx] = rV;
+            this.data[rIdx] = v;
+            this.heapifyDown(rIdx);            
         }
     }
 
