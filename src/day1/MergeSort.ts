@@ -22,43 +22,23 @@ function mergeSort(arr: number[], left: number, right: number) {
 }
 
 function merge(arr: number[], left: number, mid: number, right: number) {
-  // Defining lengths of sub-arrays
-  const n1: number = mid - left + 1;
-  const n2: number = right - mid;
-
   // Create temp arrays
-  const L: number[] = arr.slice(left, left + n1)
-  const R: number[]  = arr.slice(mid + 1, mid + 1 + n2);
+  const L: number[] = arr.slice(left, mid + 1)
+  const R: number[]  = arr.slice(mid + 1, right + 1);
 
   let i = 0;
   let j = 0;
   let k = left;
 
   // Merge temp arrays back into arr 
-  while (i < n1 && j < n2) {
-    if (L[i] <= R[j]) {
-      arr[k] = L[i];
-      i++;
-    } else {
-      arr[k] = R[j];
-      j++;
-    }
-    k++;
+  while (i < L.length && j < R.length) {
+    arr[k++] = L[i] <= R[j] ? L[i++] : R[j++];
   }
 
-  // Copy remaining elements of L[] if any
-  while (i < n1) {
-    arr[k] = L[i];
-    i++;
-    k++;
-  }
-
-  // Copy remaining elements of R[] if any
-  while (j < n2) {
-    arr[k] = R[j];
-    j++;
-    k++;
-  }
+  // Copy remaining elements of L[] (if any) into arr
+  while (i < L.length) arr[k++] = L[i++];
+  // Copy remaining elements of R[] (if any) into arr
+  while (j < R.length) arr[k++] = R[j++];
 }
 
 const arr = [9, 3, 7, 4, 69, 420, 42];
