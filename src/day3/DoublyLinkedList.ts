@@ -1,13 +1,32 @@
+type Node<T> = {
+    value: T;
+    next?: Node<T>
+    prev?: Node<T> 
+}
+
 export default class DoublyLinkedList<T> {
     public length: number;
-
-    
+    private head?: Node<T>;
+    private tail?: Node<T>;    
 
     constructor() {
+        this.length = 0;
+        this.head = undefined;
+        this.tail = undefined;
     }
 
     prepend(item: T): void {
+        const node = {value: item} as Node<T>;
 
+        this.length++;
+        if (this.head) {
+            this.head = this.tail = node;
+            return;
+        }
+
+        node.next = this.head;
+        this.head.prev = node;
+        this.head = node;
 }
     insertAt(item: T, idx: number): void {
 
