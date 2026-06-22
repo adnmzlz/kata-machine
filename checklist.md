@@ -1,13 +1,14 @@
 - ArrayList
 - BFSGraphMatrix
 ✅ BinarySearchList
-✅ BTInOrder
-✅ BTPostOrder
-✅ BTPreOrder
+- BTBFS ⚠️
+✅ BTInOrder (⚠️ iterative)
+✅ BTPostOrder (⚠️ iterative)
+✅ BTPreOrder (⚠️ iterative)
 ✅ BubbleSort
 - CompareBinaryTrees
 - DFSGraphList
-- DFSOnBST
+- DFSOnBST ⚠️
 - DijkstraList
 - DoublyLinkedList
 - InsertionSort
