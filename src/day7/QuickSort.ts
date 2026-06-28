@@ -15,7 +15,7 @@ function partition(arr: number[], l: number, r: number): number {
   let idx = l - 1;
   const pivot = arr[r];
 
-  for (let i = l; l < r; i++) {
+  for (let i = l; i < r; i++) {
     if (arr[i] <= pivot) {
       idx++;
       const tmp = arr[i];
