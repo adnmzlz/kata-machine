@@ -16,6 +16,7 @@
 - LRU
 - Map
 - MazeSolver
+✅ MergeSort
 - MinHeap
 - PrimsList
 - Queue
